@@ -119,7 +119,7 @@ class RecorderWindow extends HTMLElement
 
     connectedCallback()
     {
-        this.style.position = "absolute";
+        this.style.position = "fixed";
         this.style.top = "100px";
         this.style.left = "10px";
         this.style.zIndex = "100000";
