@@ -4,18 +4,19 @@ class Recorder
     {
 
         let stream = new MediaStream();
-        if(element.captureStream)
+        if(element.tagName === "CANVAS")
         {
             stream = element.captureStream();
         }
-        else if(element.mozCaptureStream)
+        else if(element.tagName === "VIDEO")
         {
             stream = element.mozCaptureStream();
+         
+         
+            this.audioCtx = new AudioContext();
+            this.audioSrc = this.audioCtx.createMediaElementSource(element);
+            this.audioSrc.connect(this.audioCtx.destination);
         }
-
-        this.audioCtx = new AudioContext();
-        this.audioSrc = this.audioCtx.createMediaElementSource(element);
-        this.audioSrc.connect(this.audioCtx.destination);
 
         this.mediaRecorder = new MediaRecorder(stream);
         this.chunks = [];
