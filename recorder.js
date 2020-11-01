@@ -137,6 +137,10 @@ class RecorderWindow extends HTMLElement
         div.appendChild(bar);
         bar.addEventListener("mousedown", e=>
         {
+            if(this.select.disabled == false)
+            {
+                this.update();
+            }
             this.down = true;
             this.dx =  e.clientX - this.x;
 			this.dy = e.clientY - this.y;
