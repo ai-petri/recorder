@@ -122,7 +122,7 @@ class RecorderWindow extends HTMLElement
         this.style.position = "absolute";
         this.style.top = "100px";
         this.style.left = "10px";
-        this.style.zIndex = "10";
+        this.style.zIndex = "100000";
         let shadow = this.attachShadow({mode: "open"});
         let div = document.createElement("div");
         div.style.width = "200px";
